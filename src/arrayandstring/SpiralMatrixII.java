@@ -3,15 +3,19 @@ package arrayandstring;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 54. Spiral Matrix
-Given an m x n matrix, return all elements of the matrix in spiral order.
-Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
-Output: [1,2,3,6,9,8,7,4,5]
-Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
-Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+/** 59. Spiral Matrix II (Medium)
+Given a positive integer n, generate an n x n matrix filled with elements from 1 to n2 in spiral order.
+Input: n = 3
+Output: [[1,2,3],[8,9,4],[7,6,5]]
+Input: n = 1
+Output: [[1]]
  */
 
-public class SpiralMatrix {  
+class Solution {
+
+}
+
+public class SpiralMatrixII {  
 
     private static void printArray2(int[][] a) {
         if (a == null || a.length == 0 ) {
@@ -24,12 +28,10 @@ public class SpiralMatrix {
             System.out.println();
         }
     }
-    public static List<Integer> spiralOrder(int[][] matrix) {
 
-        int M = matrix.length;      //matrix rows
-        int N = matrix[0].length;   // matrix collums
-        int spiral_length = M*N;    
-        List<Integer> spiral = new ArrayList<Integer>();
+    // generate the matrix with elements in spiral order
+    public static int[][] generateMatrix(int n) {
+        int[][] matrix = new int[n][n];
 
         //pointer tracking
         int x = 0;
@@ -41,10 +43,10 @@ public class SpiralMatrix {
         // dynamic matrix size for borders
         // y_min, y_max, x_min, x_max
         // it will resize after every direction change of spiral moving
-        int[] matrix_size = {0, M-1, 0, N-1};
+        int[] matrix_size = {0, n-1, 0, n-1};
 
-        for (int i=1; i <= spiral_length; i++) {
-            spiral.add(matrix[y][x]);
+        for (int i=1; i <= n*n; i++) {
+            matrix[y][x] = i;
             if (direction == 0) {
                 if (x == matrix_size[3]) {  // left border reaching (x_max)
                     matrix_size[0] += 1;    // upper border move down (y_min)
@@ -79,20 +81,16 @@ public class SpiralMatrix {
             }
         }
 
-        return spiral;
+        return matrix;
     }
 
     public static void main (String[] args) {
-        // int[][] nums = null;
-        // int[][] nums = { {1,2,3}, {4,5,6}, {7,8,9} };
-        // int[][] nums = { {1,2,3,4}, {5,6,7,8}, {9,10,11,12} };
-        int[][] nums = { {1,2,3}, {4,5,6}, {7,8,9}, {10,11,12} };
 
         // the matrix
-        printArray2(nums);
+        int[][] matrix = generateMatrix(4);
+        
         // the answer
-        System.out.print("Ans: ");
-        // printArray(findDiagonalOrder(nums));
-        System.out.println(spiralOrder(nums));
+        System.out.println("Ans: ");
+        printArray2(matrix);
     }
 }
