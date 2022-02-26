@@ -1,8 +1,5 @@
 package arrayandstring;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /** 59. Spiral Matrix II (Medium)
 Given a positive integer n, generate an n x n matrix filled with elements from 1 to n2 in spiral order.
 Input: n = 3
@@ -10,10 +7,6 @@ Output: [[1,2,3],[8,9,4],[7,6,5]]
 Input: n = 1
 Output: [[1]]
  */
-
-class Solution {
-
-}
 
 public class SpiralMatrixII {  
 
@@ -87,7 +80,7 @@ public class SpiralMatrixII {
     public static void main (String[] args) {
 
         // the matrix
-        int[][] matrix = generateMatrix(4);
+        int[][] matrix = generateMatrix(7);
         
         // the answer
         System.out.println("Ans: ");
