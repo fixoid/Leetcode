@@ -16,26 +16,23 @@ a and b consist only of '0' or '1' characters.
 Each string does not contain leading zeros except for the zero itself.
 */
 
-public class AddBinary {
+class AddBinary {
     public static String addBinary(String a, String b) {
         String term1; 
         String term2;
         int term1_length;
-        int term2_length;
         boolean temp = false;
         if (a.length() >= b.length()) {
             term1 = a; 
             term2 = b;
             term1_length = a.length();
-            term2_length = b.length();
         }
         else {
             term1 = b; 
             term2 = a; 
             term1_length = b.length();
-            term2_length = a.length();
         }
-        int terms_length_delta = term1_length - term2_length;
+        int terms_length_delta = Math.abs(a.length()-b.length());
         StringBuilder res = new StringBuilder();
 
         for (int i = term1_length-1; i >=0; i--) {
