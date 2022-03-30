@@ -1,2 +1,6 @@
 /.vscode
 /bin
+README.md
+.DS_Store
+src/.DS_Store
+src/App.java
